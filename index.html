@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dos Auto — договор купли-продажи</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Договор купли-продажи</h1>
+      <p class="lead">
+        Без входа и базы. Заполните форму — Word скачается на компьютер. Мак не нужен.
+        PDF можно сохранить из Word у себя: Файл → Сохранить как → PDF.
+      </p>
+      <p id="error" class="error" hidden></p>
+
+      <form id="deal-form" autocomplete="off">
+        <section class="card">
+          <h2>Покупатель</h2>
+          <label><span>ФИО</span><input name="fullName" required /></label>
+          <label><span>ИИН</span><input name="iin" required maxlength="12" /></label>
+          <label><span>Город проживания</span><input name="residenceCity" required /></label>
+          <label><span>Адрес</span><input name="residenceAddress" required /></label>
+          <label><span>Квартира</span><input name="residenceApartment" placeholder="необязательно" /></label>
+          <label><span>Номер удостоверения</span><input name="idNumber" required /></label>
+          <label><span>Выдано / участок</span><input name="idIssuedBy" required /></label>
+          <label><span>Телефон</span><input name="mainPhone" required value="+7" /></label>
+        </section>
+
+        <section class="card">
+          <h2>Автомобиль</h2>
+          <label><span>Марка</span><input name="brand" required /></label>
+          <label><span>Модель</span><input name="model" required /></label>
+          <label><span>Год</span><input name="year" type="number" required /></label>
+          <label><span>Цвет (рус.)</span><input name="color" required placeholder="белый" /></label>
+          <label><span>Цвет (қаз.)</span><input name="colorKk" required placeholder="ақ" /></label>
+          <label><span>VIN</span><input name="vin" required maxlength="17" /></label>
+          <label><span>Объём двигателя</span><input name="engineVolume" inputmode="decimal" required placeholder="1.6 или 1600" /></label>
+          <label><span>Количество ключей</span><input name="keyCount" type="number" required /></label>
+        </section>
+
+        <section class="card full">
+          <h2>Договор</h2>
+          <div class="row row-3">
+            <label><span>Номер договора</span><input name="dealNumber" required placeholder="6" /></label>
+            <label><span>Дата договора</span><input name="dealDate" type="date" required /></label>
+            <label><span>Цена авто (после скидки)</span><input name="finalSalePrice" inputmode="decimal" required /></label>
+            <label><span>Первоначальный взнос</span><input name="downPayment" inputmode="decimal" placeholder="0 если нет" /></label>
+          </div>
+          <p class="hint">
+            В Word внутри пишется только номер (например 6). Пропись цены и ПВ считаются сами.
+            Объём: 1.6 станет 1600 в документе.
+          </p>
+          <button type="submit">Скачать Word</button>
+        </section>
+      </form>
+    </div>
+
+    <div id="busy" class="overlay" hidden>
+      <div class="overlay-card">
+        <strong>Собираем документ</strong>
+        <p>Не закрывайте страницу. Word скачается сам.</p>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script type="module" src="js/app.js?v=1"></script>
+  </body>
+</html>
