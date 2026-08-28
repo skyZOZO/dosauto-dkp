@@ -1,4 +1,4 @@
-import { fillSaleDocx, saleFileName } from "./fill-docx.js?v=1";
+import { fillSaleDocx, saleFileName } from "./fill-docx.js?v=2";
 import { numberToKazakhWords, numberToRussianWords } from "./money-words.js";
 
 const form = document.querySelector("#deal-form");
@@ -48,8 +48,7 @@ form.addEventListener("submit", async (event) => {
 
   const finalSalePrice = parseAmount(value("finalSalePrice"));
   const year = Number(value("year"));
-  const engineVolume = parseAmount(value("engineVolume"));
-  if (!form.reportValidity() || finalSalePrice === null || !Number.isFinite(year) || engineVolume === null) {
+  if (!form.reportValidity() || finalSalePrice === null || !Number.isFinite(year)) {
     showError("Заполните обязательные поля.");
     return;
   }
@@ -79,7 +78,7 @@ form.addEventListener("submit", async (event) => {
       color: value("color"),
       colorKk: value("colorKk"),
       vin: value("vin"),
-      engineVolume,
+      engineVolume: value("engineVolume"),
       keyCount: optionalNumber("keyCount"),
     },
   };

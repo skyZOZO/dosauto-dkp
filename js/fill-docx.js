@@ -34,12 +34,10 @@ function formatDate(value) {
   return `${pad(day)}.${pad(month)}.${year}`;
 }
 
-function engineCc(volume) {
+function engineVolumeText(volume) {
   if (volume == null) return "—";
-  const n = typeof volume === "number" ? volume : Number(String(volume).replace(",", "."));
-  if (!Number.isFinite(n) || n <= 0) return "—";
-  if (n >= 100) return String(Math.round(n));
-  return String(Math.round(n * 1000));
+  const raw = String(volume).trim();
+  return raw || "—";
 }
 
 function salePhone(phone) {
@@ -129,7 +127,7 @@ function makeFillCtx(data) {
     colorKk: data.car.colorKk?.trim() || data.car.color?.trim() || "—",
     colorRu: data.car.color?.trim() || "—",
     vin: data.car.vin?.trim() || "—",
-    volume: engineCc(data.car.engineVolume),
+    volume: engineVolumeText(data.car.engineVolume),
     keys: data.car.keyCount != null ? String(data.car.keyCount) : "—",
     priceGrouped: formatGroupedInt(price),
     priceWordsKk: numberToKazakhWords(price),

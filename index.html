@@ -36,7 +36,7 @@
           <label><span>Цвет (рус.)</span><input name="color" required placeholder="белый" /></label>
           <label><span>Цвет (қаз.)</span><input name="colorKk" required placeholder="ақ" /></label>
           <label><span>VIN</span><input name="vin" required maxlength="17" /></label>
-          <label><span>Объём двигателя</span><input name="engineVolume" inputmode="decimal" required placeholder="1.6 или 1600" /></label>
+          <label><span>Объём двигателя</span><input name="engineVolume" required placeholder="как в документе: 1.6 или 1600" /></label>
           <label><span>Количество ключей</span><input name="keyCount" type="number" required /></label>
         </section>
 
@@ -50,7 +50,7 @@
           </div>
           <p class="hint">
             В Word внутри пишется только номер (например 6). Пропись цены и ПВ считаются сами.
-            Объём: 1.6 станет 1600 в документе.
+            Объём в документ попадёт как напишете.
           </p>
           <button type="submit">Скачать Word</button>
         </section>
@@ -65,6 +65,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script type="module" src="js/app.js?v=1"></script>
+    <script type="module" src="js/app.js?v=2"></script>
   </body>
 </html>
