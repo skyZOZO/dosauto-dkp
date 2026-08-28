@@ -36,7 +36,7 @@
           <label><span>Цвет (рус.)</span><input name="color" required placeholder="белый" /></label>
           <label><span>Цвет (қаз.)</span><input name="colorKk" required placeholder="ақ" /></label>
           <label><span>VIN</span><input name="vin" required maxlength="17" /></label>
-          <label><span>Объём двигателя</span><input name="engineVolume" required placeholder="как в документе: 1.6 или 1600" /></label>
+          <label><span>Объём двигателя</span><input name="engineVolume" required /></label>
           <label><span>Количество ключей</span><input name="keyCount" type="number" required /></label>
         </section>
 
@@ -45,13 +45,9 @@
           <div class="row row-3">
             <label><span>Номер договора</span><input name="dealNumber" required placeholder="6" /></label>
             <label><span>Дата договора</span><input name="dealDate" type="date" required /></label>
-            <label><span>Цена авто (после скидки)</span><input name="finalSalePrice" inputmode="decimal" required /></label>
+            <label><span>Цена авто</span><input name="finalSalePrice" inputmode="decimal" required /></label>
             <label><span>Первоначальный взнос</span><input name="downPayment" inputmode="decimal" placeholder="0 если нет" /></label>
           </div>
-          <p class="hint">
-            В Word внутри пишется только номер (например 6). Пропись цены и ПВ считаются сами.
-            Объём в документ попадёт как напишете.
-          </p>
           <button type="submit">Скачать Word</button>
         </section>
       </form>
@@ -65,6 +61,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script type="module" src="js/app.js?v=2"></script>
+    <script type="module" src="js/app.js?v=3"></script>
   </body>
 </html>
